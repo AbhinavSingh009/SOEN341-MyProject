@@ -1,0 +1,74 @@
+<?php
+include_once "Mapper.php";
+include_once "Uow.php";
+include_once "tabletIdMap.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/TTdg.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Tablet.php";
+
+class LaptopMapper extends Mapper{
+	private $obj;
+	private $tablet;
+	private $tabletIDMAP;
+	private $tTdg;
+	
+	
+	public function __construct(){
+		$this->tabletIDMAP = new TabletIdMap();
+		if ($this->tTdg == null){
+			$this->tTdg = new TTdg();
+		}
+	}
+	
+	public function MakeNew($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
+			$hdSize, $noCPU, $displaySize, $battInfo, $os,$cameraInfo, $height, $length, $width){
+		$this->obj = new tablet($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
+			$hdSize, $noCPU, $displaySize, $battInfo, $os,$cameraInfo, $height, $length, $width);
+		$this->tabletIDMAP->add($this->obj);
+		UnitOfWork::registerNew($this->obj);
+		UnitOfWork::commit();
+		//UOW.registerNew($this, $this->obj);
+	}
+	
+	/*public function find($id){
+		if ($this->laptopIDMAP.get($id) == null){
+			
+			if($this->lTdg.get($id) != null){
+				//get the exact values from the row returned from the db
+				//use them as parameters to create the object.
+				$this->obj.create();
+				$this->laptopIDMAP.add($this->obj);
+				return	$this->obj;
+			} 	
+		}
+		else{
+			$this->obj = $this->laptopIDMAP.get(id);
+			return $this->obj;
+		}
+	}
+	
+	public function set($id){
+		
+		//$this->obj.property = value; you can call all set methodds in the object
+		$this->obj.set(); //changes values of obj attributes
+		return $this->UOW.registerDirty($this->obj);
+	}*/
+	
+	public function erase($id){
+		$this->tabletIDMAP->delete($id);
+		UnitOfWork::registerDelete($this, $id);
+		UnitOfWork::commit();
+	}
+	
+	public function save($obj){
+		$this->tTdg->save($obj);
+		
+	
+	}
+		
+	public function delete($id){
+		$this->tTdg->delete($id);
+	
+	}
+}
+
+?>
