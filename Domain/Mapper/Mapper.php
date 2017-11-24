@@ -1,19 +1,10 @@
 <?php
-
-//include_once "domainObjects/clients/User.php";
-//include_once "../index.php";
-//include $_SERVER['DOCUMENT_ROOT'] . "/soen341/index.php";
-//include $_SERVER['DOCUMENT_ROOT'] . "/soen341/domainObjects/clients/Client.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/clients/Admin.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Product.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Monitor.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Computer.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Desktop.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Laptop.php";
-
-
-
-//include_once "presentation/add.php";
 
 
 class Mapper{
@@ -105,7 +96,7 @@ class Mapper{
                     //create laptop object
                     $laptop = new Laptop($products[1], $products[2], $products[3], $products[4], $products[5], $products[6], $products[7], $products[8], $products[9],$products[10], $products[11]);
                     //send to identityMapper
-                    $productIdentityMapper -> add_laptop($laptop)
+                    $productIdentityMapper -> add_laptop($laptop);
                     
                     //send to tdg
                     $tdg = Tdg::factory();
