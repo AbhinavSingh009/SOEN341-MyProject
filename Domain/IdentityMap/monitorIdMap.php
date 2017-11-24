@@ -15,10 +15,6 @@ class MonitorIdMap{
 	}
 	
 	public function get($id){
-		//search $laptop catalog for obj with id
-		//return if found
-		//return null if not found
-		
 		  if(in_Array($id,$this->monitorCatalog)){  
 				$key=array_search($id,$this->monitorCatalog);         
 				return $this->monitorCatalog[$key];
@@ -30,8 +26,6 @@ class MonitorIdMap{
 	
 	
 	public function delete($obj){
-	
-		//$this->catalog[]= array_pus
 		if (($key = array_search($obj, $this->monitorCatalog)) !== false) {
 			unset($this->monitorCatalog[$key]);
 			}
