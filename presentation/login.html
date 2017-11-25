@@ -14,6 +14,12 @@
 <link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
 
+<!-- JavaScript -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/parallax.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <!-- Mobile Specific -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -28,17 +34,74 @@
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
+<script>
+$(document).ready(function(){
+    $('#register_div').hide();
+});
+
+function show_registration_div()
+{
+  $('#sub_content_div').hide();
+  $('#register_div').show();
+}
+
+function hide_registration_div()
+{
+  $('#register_div').hide();
+  $('#sub_content_div').show();
+}
+
+function send_registration_data()
+{
+  var registration_frm_data = $('#registration_frm').serializeArray();
+  var username = $('#email_address').val();
+  var password = $('#password').val();
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  // console.log(registration_frm_data);
+  if(username != '' && password != '')
+  {
+
+      //  write ajax code here
+      $.ajax({
+          type: 'post',
+          url: '../controller/controller.php',
+          data:{"page_name": "registration_data","registration_frm_data":registration_frm_data},
+          cache:false,
+          success: function(data, status)
+          {
+              if(data == 'asd')
+              {
+                location.reload();
+              }
+          },
+          error: function(xhr, desc, err) {
+              console.log(xhr);
+              console.log("Details: " + desc + "\nError:" + err);
+          }
+      });
+  }
+  else
+  {
+        alert("outside");return false;
+  }
+
+}
+
+
+</script>
+
 </head>
 
 <body>
-<div class="page"> 
+<div class="page">
   <!-- Header -->
   <header class="header-container">
     <div class="header-top">
       <div class="container">
         <div class="row">
-          <div class="col-xs-6"> 
-            
+          <div class="col-xs-6">
+
             <!-- Header Currency -->
           <!--  <div class="dropdown block-currency-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-currency dropdown-toggle" href="#"> USD <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -47,8 +110,8 @@
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
               </ul>
             </div> -->
-            
-            <!-- End Header Currency --> 
+
+            <!-- End Header Currency -->
             <!-- Header Language -->
           <!--  <div class="dropdown block-language-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-language dropdown-toggle" href="#"> <img src="images/english.png" alt="language"> English <span class="caret"></span> </a>
               <ul class="dropdown-menu" role="menu">
@@ -57,13 +120,13 @@
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
               </ul>
             </div> -->
-            
+
             <!-- End Header Language -->
-            
+
             <div class="welcome-msg hidden-xs"><marquee>Welcome to OXY Computers</marquee>  </div>
           </div>
-          <div class="col-xs-6"> 
-            
+          <div class="col-xs-6">
+
             <!-- Header Top Links -->
             <div class="toplinks">
               <div class="links">
@@ -73,19 +136,19 @@
                 <div class="login"><a href="login.html"><span>Log In</span></a></div>
               </div>
             </div>
-            <!-- End Header Top Links --> 
+            <!-- End Header Top Links -->
           </div>
         </div>
       </div>
     </div>
     <div class="header container">
       <div class="row">
-        <div class="col-lg-3 col-sm-6 col-md-3"> 
-          <!-- Header Logo --> 
-          <a class="logo" title="Magento Commerce" href="index.html"><b><h1><span>OXY</span></b>Computers</h1></a> 
-          <!-- End Header Logo --> 
+        <div class="col-lg-3 col-sm-6 col-md-3">
+          <!-- Header Logo -->
+          <a class="logo" title="Magento Commerce" href="index.html"><b><h1><span>OXY</span></b>Computers</h1></a>
+          <!-- End Header Logo -->
         </div>
-        <div class="col-lg-9 col-sm-6 col-md-9"> 
+        <div class="col-lg-9 col-sm-6 col-md-9">
           <!-- Search-col -->
           <div class="search-box pull-right">
             <form action="cat" method="POST" id="search_mini_form" name="Categories">
@@ -93,16 +156,16 @@
               <button type="button" class="btn btn-default  search-btn-bg"> <span class="glyphicon glyphicon-search"></span>&nbsp;</button>
             </form>
           </div>
-          <!-- End Search-col --> 
+          <!-- End Search-col -->
         </div>
       </div>
     </div>
   </header>
-  <!-- end header --> 
+  <!-- end header -->
   <!-- Navbar -->
   <nav>
     <div class="container">
-      <div class="nav-inner"> 
+      <div class="nav-inner">
         <!-- mobile-menu -->
         <div class="hidden-desktop" id="mobile-menu">
           <ul class="navmenu">
@@ -111,44 +174,44 @@
                 <div class="toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></div>
                 <h2>Categories</h2>
               </div>
-           
+
             </li>
           </ul>
-          <!--navmenu--> 
+          <!--navmenu-->
         </div>
-        
+
         <!--End mobile-menu -->
         <ul id="nav" class="hidden-xs">
           <li id="nav-home" class="level0 parent drop-menu active"><a href="index.html"><span>Home</span> </a>
-          
+
           </li>
-         
+
          <!-- <li class="level0 nav-7 level-top parent"> <a href="grid.html" class="level-top"> <span>Computers</span> </a>
-       
+
           </li> -->
           <li class="level0 nav-6 level-top parent"> <a href="login.html" class="level-top"> <span>Desktop</span> </a>
-        
+
           </li>
           <li class="level0 nav-7 level-top parent"> <a class="level-top" href="login.html"> <span>Laptop</span> </a>
-        
+
           </li>
           <li class="level0 nav-8 level-top"> <a href="login.html" class="level-top"> <span>Monitor</span> </a> </li>
          <!-- <li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Product</span> </a> </li> -->
-        
+
 			<li class="level0 nav-8 level-top"> <a href="login.html" class="level-top"> <span>Tablet</span> </a> </li>
         </ul>
-         
-         
+
+
           </li>
-          
+
           </li>
         </ul>
-      
+
       </div>
     </div>
   </nav>
-  <!-- end nav --> 
-  
+  <!-- end nav -->
+
   <section class="main-container col1-layout">
     <div class="main container">
       <div class="account-login">
@@ -159,10 +222,34 @@
           <legend>Login or Create an Account</legend>
           <div class="col-1 new-users"><strong>New Customers</strong>
             <div class="content">
-              <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-              <div class="buttons-set">
-                <button onclick="window.location='http://demo.magentomagik.com/computerstore/customer/account/create/';" class="button create-account" type="button"><span>Create an Account</span></button>
+              <div id="sub_content_div">
+                <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                <div class="buttons-set">
+                  <button onclick="return show_registration_div()" class="button create-account" type="button"><span>Create an Account</span></button>
+                </div>
               </div>
+              <br />
+              <form name="registration_frm" id="registration_frm" method="POST">
+                <div id="register_div">
+                  <ul class="form-list">
+                    <li>
+                      <label for="email">Email Address <span class="required">*</span></label>
+                      <br>
+                      <input type="text" title="Email Address" class="input-text required-entry" id="email" value="" name="email_address">
+                    </li>
+                    <li>
+                      <label for="pass">Password <span class="required">*</span></label>
+                      <br>
+                      <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="password">
+                    </li>
+                  </ul>
+                  <p class="required">* Required Fields</p>
+                  <div class="buttons-set">
+                    <button id="send2" name="send" type="button" onclick="return send_registration_data()" class="button login"><span>Register</span></button>
+                    <button onclick="return hide_registration_div()" class="button create-account" type="button"><span>Cancel</span></button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
           <div class="col-2 registered-users"><strong>Registered Customers</strong>
@@ -195,7 +282,7 @@
       <br>
     </div>
   </section>
-  
+
  <!-- Footer -->
 <footer class="footer">
     <div class="footer-middle">
@@ -208,7 +295,7 @@
 <div class="col-lg-4 col-md-4 col-sm-5">
             <h4>Phone</h4>
             <ul class="contact-info">
-              <li><i class="icon-mobile-phone">&nbsp;</i><span> + 1 800 123 1234</span></li> 
+              <li><i class="icon-mobile-phone">&nbsp;</i><span> + 1 800 123 1234</span></li>
             </ul>
           </div>
        <div class="col-lg-4 col-md-4 col-sm-5">
@@ -220,28 +307,20 @@
           <div class="col-lg-4 col-md-4 col-sm-5">
             <h4>Location</h4>
             <ul class="contact-info">
-			<li><i class=icon-location-arrow>&nbsp;</i><span>Lagos, Nigeria </span></li></li>  
+			<li><i class=icon-location-arrow>&nbsp;</i><span>Lagos, Nigeria </span></li></li>
             </ul>
           </div>
         </div>
 </iv>
-		
+
     </div>
     <div class="footer-primary-bottom">
       <div class="container"></div>
     </div>
-   
-  </footer>
-  <!-- End Footer --> 
-  
-</div>
 
-<!-- JavaScript --> 
-<script type="text/javascript" src="js/jquery.min.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/parallax.js"></script> 
-<script type="text/javascript" src="js/common.js"></script> 
-<script type="text/javascript" src="js/revslider.js"></script> 
-<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
+  </footer>
+  <!-- End Footer -->
+
+</div>
 </body>
 </html>
