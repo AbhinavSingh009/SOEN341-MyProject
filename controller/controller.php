@@ -1,40 +1,52 @@
 <?php
+//the main purpose of the controller is to send and recieve
+//data need for all transactions betweeen UI and Mapper
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/Mapper/ClientMapper.php";
+
+
+//start registration control
   if(isset($_REQUEST['page_name']) && $_REQUEST['page_name'] == 'registration_data')
   {
-      echo "asd";
-  }
+
+      echo "true";
+  }//finish registration control
+
+
+//start login control
+  if(isset($_REQUEST['page_name']) && $_REQUEST['page_name'] == 'login_data')
+  {
+      $mapper = new ClientMapper();
+      if ($mapper->find($_REQUEST['user_name'], $_REQUEST['pass_word']) == "admin"){
+        echo "admin";
+  }else if ($mapper->find($_REQUEST['user_name'], $_REQUEST['pass_word']) == "client"){
+        echo "client";
+  }else{
+	      echo "no user";
+}
+
+//start admin view control
+if(isset($_REQUEST['page_name']) && $_REQUEST['page_name'] == 'view_products')
+{
+    //$lmapper = new LaptopMapper();
+    //$dmapper = new DesktopMapper();
+    //$mmapper = new MonitorMapper();
+  //  $tmapper = new TabletMapper();
+
+  //  $lmapper->get();
+      echo "true";
+
+
+}
 
 
 
-  //the main purpose of the controller is to send and recieve
-  //data need for all transactions betweeen UI and Mapper
-
-
-  //send login credentials
-
-
-
-  //check for client status to render page
-
-
-  //add
-
-
-
-  //delete
+      //echo $clientmapper->find($_REQUEST['user_name'], $_REQUEST['pass_word']);
 
 
 
 
-  //modify
+      //echo "login";
+  }//finish login control
 
-
-
-  //holds wishlist from database
-
-
-
-
-  //temporary wishlist here
 
 ?>

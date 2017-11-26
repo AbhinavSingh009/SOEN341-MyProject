@@ -1,21 +1,39 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/Tdg.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Data/TDG/Tdg.php";
 class LTdg extends Tdg{
-	
-	public function get($id){
-		//sql statments to get laptop with ID
-		//return $resultSet; if found
-		//or null if not found;
-		/*$qry = "SELECT  FROM  WHERE";
-		$result = mysql_query($qry);
-		if ($result){
-			//return resultset ;
-		}
-		else{
-			return "Operation Unsuccessful";
-		}*/
-		
-		
+
+public function get(){
+	    $productList = array();
+	    $servername = "localhost";
+	    $dbname = "pomoroad_myTestDB";
+
+
+	    // Create connection
+	    $conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
+
+	    $monitorQuery = $conn->query("SELECT * FROM Laptop");
+
+
+	        if($monitorQuery->num_rows>0){
+	            while($row=$monitorQuery->fetch_assoc()){
+	                $brandName=$row['brandname'];
+	                $modelNumber=$row['modelNumber'];
+	                $weight=$row['weight'];
+	                $price=$row['price'];
+	                $processorType=$row['processorType'];
+	                $ramSize=$row['ramSize'];
+	                $hdSize=$row['hdSize'];
+	                $noCPU=$row['noCPU'];
+	                $displaySize=$row['displaySize'];
+	                $battInfo=$row['battInfo'];
+	                $os=$row['os'];
+	                $product = array($brandName, $modelNumber, $price, $weight, $size, $processorType, $ramSize, $hdSize, $noCPU, $displaySize, $battInfo, $os);
+	            array_push($productList, $product);
+	            }
+	            return $productList;
+
+	        }
+
 	}
 
 	public function update($id,$laptop)
@@ -61,7 +79,7 @@ class LTdg extends Tdg{
 
     }
 
-	
+
 	public function save($laptop){
 		//some database update db statement
 		/*$qry = "UPDATE SET WHERE";
@@ -73,15 +91,15 @@ class LTdg extends Tdg{
 			return "Operation Unsuccessful";
 		}*/
 		//print_r($laptop);
-		
+
 		$newArr = array();
 		$newArr = (array) $laptop;
 		$values = array();
-		
-		
+
+
 		echo "array is ";
 		$product = array_values($newArr);
-		
+
 		$brandname = $product[7];
 		$modelNumber = $product[8];
 		$price = $product[9];
@@ -93,26 +111,26 @@ class LTdg extends Tdg{
 		$displaySize = $product[0];
 		$battInfo = $product[1];
 		$os=$product[2];
-		
+
 			$servername = "localhost";
 			$dbname = "pomoroad_myTestDB";
-	
+
 			// Create connection
 			$conn = new mysqli($servername, 'root', '', $dbname);
-			
+
 			$sql = "INSERT INTO Laptop (brandname, modelNumber, price, weight, processorType, ramSize, hdSize, noCPU, os, battInfo, displaySize) VALUES ('$brandname', '$modelNumber', '$price', '$weight', '$processorType', '$ramSize', '$hdSize', '$noCPU', '$os', '$battInfo', '$displaySize')";
 		   if($conn->query($sql)===TRUE){
 			   return "Operation sucessful";
-			   
-			   
+
+
 		   }else{
 			   echo "Error: " .$sql."<br>".$conn->error;
 		   }
-		
+
 			$conn->close();
-			
+
 	}
-	
+
 
 	public function delete($id){
 		//$newArr = (array) $laptop;
@@ -126,31 +144,31 @@ class LTdg extends Tdg{
 		else{
 			return "Operation Unsuccessful";
 		}*/
-		
+
 			$servername = "localhost";
 			$dbname = "pomoroad_myTestDB";
-	
+
 			// Create connection
 			$conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
-			
+
 			$sql = "DELETE FROM Laptop WHERE modelNumber ='$id'";
 		   if($conn->query($sql)===TRUE){
 			   return "Operation sucessful";
-			   
-			   
+
+
 		   }else{
 			   echo "Error: " .$sql."<br>".$conn->error;
 		   }
-		
+
 			$conn->close();
-		
+
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 }
 
 

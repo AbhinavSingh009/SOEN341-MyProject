@@ -70,10 +70,16 @@ function send_registration_data()
           cache:false,
           success: function(data, status)
           {
-              if(data == 'asd')
+              if(data == 'true')
               {
                 location.reload();
+                alert("Record Added... You may login");
+
               }
+              //else if(data == 'login')
+              //{
+              //  location.href = "grid.html";
+              //}
           },
           error: function(xhr, desc, err) {
               console.log(xhr);
@@ -88,6 +94,51 @@ function send_registration_data()
 
 }
 
+function send_login_data()
+{
+  var login_frm_data = $('#login_frm').serializeArray();
+  var username = $('#lemail').val();
+  var password = $('#lpass').val();
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  // console.log(registration_frm_data);
+  if(username != '' && password != '')
+  {
+
+      //  write ajax code here
+      $.ajax({
+          type: 'post',
+          url: '../controller/controller.php',
+          data:{"page_name": "login_data","user_name":username, "pass_word":password},
+          cache:false,
+          success: function(data, status)
+          {
+              if(data == 'admin')
+              {
+                location.href = "admin.html";
+
+              }
+              else if(data == 'client')
+              {
+                location.href = "product.html";
+              }
+              else if (data == 'no user'){
+                location.reload();
+                alert("user not in the database");
+              }
+          },
+          error: function(xhr, desc, err) {
+              console.log(xhr);
+              console.log("Details: " + desc + "\nError:" + err);
+          }
+      });
+  }
+  else
+  {
+        alert("outside");return false;
+  }
+
+}
 
 </script>
 
@@ -259,17 +310,17 @@ function send_registration_data()
                 <li>
                   <label for="email">Email Address <span class="required">*</span></label>
                   <br>
-                  <input type="text" title="Email Address" class="input-text required-entry" id="email" value="" name="login[username]">
+                  <input type="text" title="Email Address" class="input-text required-entry" id="lemail" value="" name="login[username]">
                 </li>
                 <li>
                   <label for="pass">Password <span class="required">*</span></label>
                   <br>
-                  <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
+                  <input type="password" title="Password" id="lpass" class="input-text required-entry validate-password" name="login[password]">
                 </li>
               </ul>
               <p class="required">* Required Fields</p>
               <div class="buttons-set">
-                <button id="send2" name="send" type="submit" class="button login"><span>Login</span></button>
+                <button id="send2" name="send" type="submit" onclick="return send_login_data()" class="button login"><span>Login</span></button>
                 <a class="forgot-word" href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Forgot Your Password?</a> </div>
             </div>
           </div>

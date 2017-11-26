@@ -1,10 +1,19 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/clients/Admin.php";
+/*include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/clients/Admin.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Product.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Monitor.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Computer.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Desktop.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Laptop.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Laptop.php";*/
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Laptop.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Desktop.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Computer.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Monitor.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Product.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/clients/Admin.php";
+
+
 
 
 class Mapper{
@@ -12,12 +21,12 @@ class Mapper{
     private $productIdentityMapper;
     private $tdg;
     private $client;
-    
+
     public function __construct(){
         $productIdentityMapper = new Pim();
         $tdg = new Tdg();
     }
-    
+
     //factory method
     public static function factory(){
         //session_start();
@@ -27,24 +36,24 @@ class Mapper{
         //echo "no mapper"; //troubleshooting comment
         return new Mapper();
     }
-    
+
     public function getClient(){
         return $this->client;
     }
-    
+
     public function unpackClient(){
        // $client=unserialize($_SESSION['mclient'];
     }
-    
+
     public function setSomeNumber($someNumber){
         $this->someNumber = $someNumber;
     }
-    
+
     public function login($userName, $password){
         $login = new Login($userName, $password);
-        $this->authenticate($login);        
+        $this->authenticate($login);
     }
-    
+
     private function authenticate($login){
         //all tdg stuff goes here
         $tdg1 = Tdg::factory();
@@ -54,30 +63,30 @@ class Mapper{
             if($isAdmin==1){
                 $this->client = new Admin($row["clientId"], $row["userName"], $row["isAdmin"], $row["firstName"], $row["lastName"], $row["physicalAddress"], $row["emailAddress"], $row["phoneNumber"]);
             }
-            
+
         }
         else{
                 echo "no user returned or login credentials no matching";
                 $this->client=null;
             }
-        
-        
+
+
     }
-    
+
     public function addProducts($products){
-        
-            
+
+
             switch($products[0]){
                 case 'monitor':
                 	//create monitor object
                     $monitor = new Monitor($products[1], $products[2], $products[3], $products[4], $products[5]);
                     //send to identityMapper
                     $productIdentityMapper -> add_monitor($monitor);
-                    
+
                     //send to tdg
                     $tdg = Tdg::factory();
                     $tdg->addMonitor($products);
-                    
+
                     //echo "in case monitor";
                     break;
                  case 'desktop':
@@ -85,11 +94,11 @@ class Mapper{
                     $desktop = new Desktop($products[1], $products[2], $products[3], $products[4], $products[5], $products[6], $products[7], $products[8], $products[9]);
                     //send to identityMapper
                     $productIdentityMapper -> add_desktop($desktop);
-                    
+
                     //send to tdg
                     $tdg = Tdg::factory();
                     $tdg->addDesktop($products);
-                    
+
                    // echo "in case desktop";
                     break;
                 case 'laptop':
@@ -97,11 +106,11 @@ class Mapper{
                     $laptop = new Laptop($products[1], $products[2], $products[3], $products[4], $products[5], $products[6], $products[7], $products[8], $products[9],$products[10], $products[11]);
                     //send to identityMapper
                     $productIdentityMapper -> add_laptop($laptop);
-                    
+
                     //send to tdg
                     $tdg = Tdg::factory();
                     $tdg->addLaptop($products);
-                    
+
                     //echo "in case laptop";
                     break;
                 case 'tablet':
@@ -109,43 +118,43 @@ class Mapper{
                     $tablet = new Tablet($products[1], $products[2], $products[3], $products[4], $products[5], $products[6], $products[7], $products[8], $products[9],$products[10], $products[11], $products[12], $products[13]);
                     //send to identityMapper
                     $productIdentityMapper -> add_tablet($tablet);
-                    
+
                     //send to tdg
                     $tdg = Tdg::factory();
                     $tdg->addTablet($products);
-                    
+
                     //echo "in case Tablet";
                     break;
-            
+
         }
-        
+
     }
-    
+
     public function viewProducts($productType){
         $tdg = Tdg::factory();
         switch($productType){
             case 'monitor':
                 //check the productIdentityMapper for this product -> should have some variable for "has all monitors "?
-                
+
                 //if null
-               
+
                 $productList = $tdg->viewMonitors();
                 return $productList;
                 echo "hi in monitor view";
                 break;
-                
+
             case 'laptop':
                 $productList = $tdg->viewLaptops();
                 return $productList;
                 echo "hi in laptop view";
                 break;
-                
+
             case 'desktop':
                 $productList = $tdg->viewDesktops();
                 return $productList;
                 echo "hi in desktop view";
                 break;
-                
+
             case 'tablet':
                 $productList = $tdg->viewTablets();
                 return $productList;
@@ -154,28 +163,28 @@ class Mapper{
                 default : echo"default in viewProducts() in Mapper.php ";
         }
     }
-    
+
     public function deleteProduct($product){
-    	
+
      	$productIdentityMapper -> delete($product);
     }
     public function addToClientIdentityMapper(){
-        
-    }
-    
 
-    
+    }
+
+
+
     public function createClient(){
         $this->client = new Client();
     }
-    
-    public function registerClient(){
-        
-    }
-    
 
-    
-    
+    public function registerClient(){
+
+    }
+
+
+
+
     //save object to session variable
     public function __destruct(){
         $_SESSION['mclient']=serialize($this->client);

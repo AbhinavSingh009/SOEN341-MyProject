@@ -5,20 +5,20 @@ include_once "desktopIdMap.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/DTdg.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Desktop.php";
 
-class LaptopMapper extends Mapper{
+class DesktopMapper extends Mapper{
 	private $obj;
 	private $desktop;
 	private $desktopIDMAP;
 	private $dTdg;
-	
-	
+
+
 	public function __construct(){
 		$this->desktopIDMAP = new DesktopIdMap();
 		if ($this->dTdg == null){
 			$this->dTdg = new DTdg();
 		}
 	}
-	
+
 	public function MakeNew($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
 			$hdSize, $noCPU, $height, $length, $width){
 		$this->obj = new desktop($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
@@ -27,22 +27,22 @@ class LaptopMapper extends Mapper{
 		UnitOfWork::registerNew($this->obj);
 		UnitOfWork::commit();
 	}
-	
+
 	public function erase($id){
 		$this->desktopIDMAP->delete($id);
 		UnitOfWork::registerDelete($this, $id);
 		UnitOfWork::commit();
 	}
-	
+
 	public function save($obj){
 		$this->dTdg->save($obj);
-		
-	
+
+
 	}
-		
+
 	public function delete($id){
 		$this->dTdg->delete($id);
-	
+
 	}
 }
 

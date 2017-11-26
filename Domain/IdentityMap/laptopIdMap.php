@@ -27,5 +27,5 @@ class LaptopIdMap{
             return null;
         }
     }
-)
+}
 ?>

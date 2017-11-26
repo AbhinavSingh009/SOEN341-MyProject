@@ -1,4 +1,6 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Computer.php";
+
 class Laptop extends Computer{
 	private $displaySize;
 	private $battInfo;
@@ -12,31 +14,33 @@ class Laptop extends Computer{
 		$this->battInfo = $battInfo;
 		$this->os = $os;
 	}
-	
+
 	public function getDisplaySize(){
 		return $this->displaySize;
 	}
-	
+
 	public function setDisplaySize($displaySize){
 		$this->displaySize=$displaySize;
 	}
-	
+
 	public function getBattInfo(){
 		return $this->battInfo;
 	}
-	
+
 	public function setBattInfo($battInfo){
 		$this->battInfo=$battInfo;
 	}
-	
+
 	public function getOs(){
 		return $this->os;
 	}
-	
+
 	public function setOs($os){
 		$this->os = $os;
 	}
+
+	/*public function create(){
+		return $this;
+	}*/
 }
 ?>
-
-
