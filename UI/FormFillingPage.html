@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Popup contact form</title>
+<link href="css/elements.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function(){
+        $('#form1').hide();
+        $('#form2').hide();
+        $('#form3').hide();
+        $('#form4').hide();
+    });
+    function select_form()
+    {
+        var productType = $('#productType').val();
+        if(productType == 'Laptop')
+        {
+            $('#form2,#form3,#form4').hide();
+            $('#form1').show();
+        }
+        else if(productType == 'Desktop')
+        {
+            $('#form1,#form3,#form4').hide();
+            $('#form2').show();
+        }
+        else if(productType == 'Monitor')
+        {
+            $('#form1,#form2,#form4').hide();
+            $('#form3').show();
+        }
+        else if(productType == 'Tablet')
+        {
+            $('#form1,#form2,#form3').hide();
+            $('#form4').show();
+        }
+    }
+</script>
+</head>
+<!-- Body Starts Here -->
+<body id="body" style="overflow:hidden;">
+  <h1> Select Product Type</h1>
+  <select id="productType" name="productType" onchange="return select_form()">
+     <option value="Laptop">Laptop</option>
+     <option value="Desktop">Desktop</option>
+     <option value="Monitor">Monitor</option>
+     <option value="Tablet">Tablet</option>
+  </select>
+<div id="abc">
+<!-- Popup Div Starts Here -->
+<div id="desktopID">
+<!-- Contact Us Form -->
+<form action="#" id="form1" method="post" name="form">
+<h2>Desktop Details</h2>
+<hr>
+<input id="brandName" name="Brand Name" placeholder="brand name" type="text">
+<input id="modelNumber" name="Model Number" placeholder="model number" type="text">
+<input id="price" name="Price" placeholder="price" type="int">
+<input id="weight" name="Weight" placeholder="weight" type="text">
+<input id="processorType" name="Processor Type" placeholder="processor type" type="text">
+<input id="ramSize" name="Ram Size" placeholder="ram size" type="text">
+<input id="hdSize" name="Hard Drive Size" placeholder="hard drive size" type="text">
+<input id="noCPU" name="Number of CPU" placeholder="number of cpu" type="text">
+<input id="dimention" name="Dimentions" placeholder="dimention" type="text">
+<a href="" id="submit">Submit</a>
+</form>
+</div>
+<div id="LaptopID">
+
+<form action="#" id="form2" method="post" name="form">
+<h2>Laptop Details</h2>
+<hr>
+<input id="LaptopbrandName" name="Brand Name" placeholder="brand name" type="text">
+<input id="LaptopmodelNumber" name="Model Number" placeholder="model number" type="text">
+<input id="Laptopprice" name="Price" placeholder="price" type="number">
+<input id="Laptopweight" name="Weight" placeholder="weight" type="text">
+<input id="LaptopprocessorType" name="Processor Type" placeholder="processor type" type="text">
+<input id="LaptopramSize" name="Ram Size" placeholder="ram size" type="text">
+<input id="LaptophdSize" name="Hard Drive Size" placeholder="hard drive size" type="text">
+<input id="LaptopnoCPU" name="Number of CPU" placeholder="number of cpu" type="text">
+<input id="LaptopdisplaySize" name="Display Size" placeholder="display size" type="number">
+<input id="LaptopBatteryInfo" name="Battery Info" placeholder="battery info" type="text">
+<input id="LaptopOs" name="Operating System" placeholder="operating system" type="text">
+<a href=""id="submit">Submit</a>
+</form>
+</div>
+<div id="MonitorID">
+
+
+<form action="#" id="form3" method="post" name="form">
+<h2>Monitor Details</h2>
+<hr>
+<input id="MonitorDisplaySize" name="Display Size" placeholder="display size" type="text">
+<input id="MonitorBrandName" name="Brand Name" placeholder="brand name" type="text">
+<input id="MonitorPrice" name="Price" placeholder="price" type="number">
+<input id="MonitorModelNumber" name="Model Number" placeholder="model number" type="text">
+<input id="MonitorWeight" name="Monitor Weight" placeholder="monitor weight" type="number">
+
+<a href=""id="submit">Submit</a>
+</form>
+</div>
+<div id="TabletID">
+
+
+<form action="#" id="form4" method="post" name="form">
+<h2>Tablet Details</h2>
+<hr>
+<input id="TabletbrandName" name="Brand Name" placeholder="brand name" type="text">
+<input id="LaptopmodelNumber" name="Model Number" placeholder="model number" type="text">
+<input id="Tabletprice" name="Price" placeholder="price" type="number">
+<input id="TabletWeight" name="Weight" placeholder="weight" type="text">
+<input id="TabletprocessorType" name="Processor Type" placeholder="processor type" type="text">
+<input id="tabletRamSize" name="Ram Size" placeholder="ram size" type="text">
+<input id="TablethdSize" name="Hard Drive Size" placeholder="hard drive size" type="text">
+<input id="TabletNoCPU" name="Number of CPU" placeholder="number of cpu" type="text">
+<input id="TabletDisplaySize" name="Display Size" placeholder="display size" type="number">
+<input id="TabletbrandName" name="Battery Info" placeholder="battery info" type="text">
+<input id="TabletOs" name="Operating System" placeholder="operating system" type="text">
+<input id="TabletCameraInfo" name="Camera Info" placeholder="camera info" type="text">
+<input id="Tabletdimention" name="Dimentions" placeholder="dimention" type="text">
+
+<a href=""id="submit">Submit</a>
+</form>
+</div>
+<!-- Popup Div Ends Here -->
+</div>
+<!-- Display Popup Button -->
+</body>
+<!-- Body Ends Here -->
+</html>

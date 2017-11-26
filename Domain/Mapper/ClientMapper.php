@@ -9,6 +9,7 @@ class ClientMapper{
   private $idmap;
   private $tdg;
   private $client;
+  private $wishlist;
 
   public function __construct(){
     $this->idmap = new ClientIdMap();
@@ -72,6 +73,7 @@ class ClientMapper{
 
 		}
 	}
+
 
 
 }

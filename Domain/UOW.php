@@ -15,22 +15,16 @@ class UnitOfWork{
 	public static function registerNew($obj){
 		//Omapper is the mapper of the object
 		$class = get_class($obj);
-		echo $class;
 		self::$registerNew[] = array($class => $obj);
-		echo "start here ------";
-		print_r(self::$registerNew);
 	}
 
-	public static function registerDirty($Omapper,$obj){
-		$class = get_class($Omapper);
-		self::$registerDirty[] = array($class => $obj);
-		print_r(self::$registerNew);
+	public static function registerDirty($id, $obj){
+		self::$registerDirty[] = array($id => $obj);
 	}
 
 
 	public static function registerDelete($Omapper,$id){
 		$class = get_class($Omapper);
-		echo "********************".$class;
 		self::$registerDeleted[] = array($id => $class);
 	}
 
@@ -38,13 +32,9 @@ class UnitOfWork{
 		$i = 0;
 		foreach (self::$registerNew as $array){
 				foreach ($array as $object){
-					echo "<br/> ------------------------";
 					$id = key($array);
-					echo "your mapper is -----------------------------------" . $id;
 					$key = $id."Mapper";
-					echo "your mapper is -----------------------------------" . $key;
 					$mapper = new $key();
-					print_r($mapper);
 					if ($mapper->save($object) == 1){
 						return 1;
 					}
@@ -54,8 +44,12 @@ class UnitOfWork{
 				}
 		}
 
-		foreach (self::$registerDirty as $map => $object){
-			//$map.save($object);
+		foreach (self::$registerDirty as $array){
+			foreach ($array as $mappername){
+			$id = key($array);
+			$mapper= new $mappername();
+			$mapper->modify($id, $array);
+			}
 		}
 
 		foreach (self::$registerDeleted as $array){

@@ -11,6 +11,7 @@ class LaptopMapper extends Mapper{
 	private $laptop;
 	private $laptopIDMAP;
 	private $lTdg;
+	private $catalog = array();
 
 
 	public function __construct(){
@@ -28,7 +29,7 @@ class LaptopMapper extends Mapper{
 			$hdSize, $noCPU, $displaySize, $battInfo, $os);
 		$this->laptopIDMAP->add($this->obj);
 		UnitOfWork::registerNew($this->obj);
-		UnitOfWork::commit();
+		//UnitOfWork::commit();
 	}
 
 	public function get(){
@@ -38,7 +39,6 @@ class LaptopMapper extends Mapper{
 		}else{
 				return $this->laptopIDMAP->get();
 		}
-							//echo "hi in monitor view";
 	}
 
 
@@ -71,19 +71,19 @@ class LaptopMapper extends Mapper{
 	public function erase($id){
 		$this->laptopIDMAP->delete($id);
 		UnitOfWork::registerDelete($this, $id);
-		UnitOfWork::commit();
+		//UnitOfWork::commit();
 	}
 
-	public function save($obj){
+	/*public function save($obj){
 		$this->lTdg->save($obj);
 
 
-	}
+	}*/
 
-	public function delete($id){
+	/*public function delete($id){
 		$this->lTdg->delete($id);
 
-	}
+	}*
 }
 
 ?>
