@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Popup contact form</title>
+<link href="css/elements.css" rel="stylesheet">
+<script></script>
+<script src="js/my_js.js"></script>
+<script>
+
+    $(document).ready(function(){
+        $('#form1').hide();
+        $('#form2').hide();
+        $('#form3').hide();
+        $('#form4').hide();
+    });
+    function select_form()
+    {
+        var productType = $('#productType').val();
+        if(productType == 'Laptop')
+        {
+            $('#form2,#form3,#form4').hide();
+            $('#form1').show();
+        }
+        else if(productType == 'Desktop')
+        {
+            $('#form1,#form3,#form4').hide();
+            $('#form2').show();
+        }
+        else if(productType == 'Monitor')
+        {
+            $('#form1,#form2,#form4').hide();
+            $('#form3').show();
+        }
+        else if(productType == 'Tablet')
+        {
+            $('#form1,#form2,#form3').hide();
+            $('#form4').show();
+        }
+    }
+</script>
+</head>
+<!-- Body Starts Here -->
+<body id="body" style="overflow:hidden;">
+  <h1> Select Product Type</h1>
+  <select id="productType" name="productType" onchange="return select_form()">
+     <option value="Laptop">Laptop</option>
+     <option value="Desktop">Desktop</option>
+     <option value="Monitor">Monitor</option>
+     <option value="Tablet">Tablet</option>
+  </select>
+<div id="abc">
+<!-- Popup Div Starts Here -->
+<div id="popupContact">
+<!-- Contact Us Form -->
+<form action="#" id="form1" method="post" name="form">
+<h2>Desktop Details</h2>
+<hr>
+<input id="brandName" name="Brand Name" placeholder="brand name" type="text">
+<input id="modelNumber" name="Model Number" placeholder="model number" type="text">
+<input id="price" name="Price" placeholder="price" type="int">
+<input id="weight" name="Weight" placeholder="weight" type="text">
+<input id="processorType" name="Processor Type" placeholder="processor type" type="text">
+<input id="ramSize" name="Ram Size" placeholder="ram size" type="text">
+<input id="hdSize" name="Hard Drive Size" placeholder="hard drive size" type="text">
+<input id="noCPU" name="Number of CPU" placeholder="number of cpu" type="text">
+<input id="dimention" name="Dimentions" placeholder="dimention" type="text">
+<a href="javascript:%20check_empty()" id="submit">Submit</a>
+</form>
+</div>
+<div id="popupContact">
+<!-- Contact Us Form -->
+<form action="#" id="form2" method="post" name="form">
+<h2>Laptop Details</h2>
+<hr>
+<input id="brandName" name="Brand Name" placeholder="brand name" type="text">
+<input id="modelNumber" name="Model Number" placeholder="model number" type="text">
+<input id="price" name="Price" placeholder="price" type="int">
+<input id="weight" name="Weight" placeholder="weight" type="text">
+<input id="processorType" name="Processor Type" placeholder="processor type" type="text">
+<input id="ramSize" name="Ram Size" placeholder="ram size" type="text">
+<input id="hdSize" name="Hard Drive Size" placeholder="hard drive size" type="text">
+<input id="noCPU" name="Number of CPU" placeholder="number of cpu" type="text">
+<input id="dimention" name="Dimentions" placeholder="dimention" type="text">
+<a href="javascript:%20check_empty()" id="submit">Submit</a>
+</form>
+</div>
+<!-- Popup Div Ends Here -->
+</div>
+<!-- Display Popup Button -->
+<h1>Click Button To Popup Form Using Javascript</h1>
+<button id="popup" onclick="div_show()">Popup</button>
+</body>
+<!-- Body Ends Here -->
+</html>
