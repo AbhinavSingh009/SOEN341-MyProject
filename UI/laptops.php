@@ -107,19 +107,20 @@
 
          <!-- <li class="level0 nav-7 level-top parent"> <a href="grid.html" class="level-top"> <span>Computers</span> </a>
 
-       </li> -->
-       <li class="level0 nav-6 level-top parent"> <a href="desktops.php" class="level-top"> <span>Desktop</span> </a>
+          </li> -->
+          <li class="level0 nav-6 level-top parent"> <a href="desktops.php" class="level-top"> <span>Desktop</span> </a>
 
-       </li>
-       <li class="level0 nav-7 level-top parent"> <a class="level-top" href="laptops.php"> <span>Laptop</span> </a>
+          </li>
+          <li class="level0 nav-7 level-top parent"> <a class="level-top" href="laptops.php"> <span>Laptop</span> </a>
 
-       </li>
-       <li class="level0 nav-8 level-top"> <a href="monitors.php" class="level-top"> <span>Monitor</span> </a> </li>
-      <!-- <li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Product</span> </a> </li> -->
+          </li>
+          <li class="level0 nav-8 level-top"> <a href="monitors.php" class="level-top"> <span>Monitor</span> </a> </li>
+         <!-- <li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Product</span> </a> </li> -->
 
-   <li class="level0 nav-8 level-top"> <a href="tablets.php" class="level-top"> <span>Tablet</span> </a> </li>
-     </ul>
+			<li class="level0 nav-8 level-top"> <a href="tablets.php" class="level-top"> <span>Tablet</span> </a> </li>
+        </ul>
 
+        </ul>
       </div>
     </div>
   </nav>
@@ -143,10 +144,6 @@
     <div class="main container">
       <div class="row">
         <section class="col-main col-sm-9 col-sm-push-3">
-
-      <div align="right">
-  <button type="button" class="btn btn-primary" style="align-self: flex-end">Add Products</button>
-  </div>
           <div class="category-products">
             <div class="toolbar">
              <!-- <div class="sorter">
@@ -199,18 +196,14 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/controller/UIcontroller.php";
 $products = array();
 $products[] = $lmapper -> get();
-$products[] = $dmapper -> get();
-$products[] = $tmapper -> get();
-$products[] = $mmapper -> get();
+
 
 
 //print_r($products[3]);
 
 
 $laptops = $products[0];
-$desktops = $products[1];
-$tablets = $products[2];
-$monitors = $products[3];
+
 
 
 
@@ -255,126 +248,7 @@ foreach($laptops as $laptop){
     }
 
 
-    echo "<p></p>";
-    foreach($desktops as $desktop){
-                $DUI = '<ul class="products-grid">
-                  <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="item">
-                      <div class="col-item">
-                        <div class="sale-label sale-top-right">Sale</div>
-                        <div class="item-inner">
-                          <div class="product-wrapper">
-                            <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onClick=""><span><em>&nbsp;</em></span></span></span></a></div>
-                          </div>
-                          <div class="item-info">
-                            <div class="info-inner">
-                              <div class="item-title"> <a href="product_detail.html" title="Sample Product">'. $desktop[0] .'</a> </div>
-                              <div class="item-content">
-                                <div class="rating">
-                                  <div class="ratings">
-                                    <div class="rating-box">
-                                      <div class="rating" style="width:60%"></div>
-                                    </div>
-                                    <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                  </div>
-                                </div>
-                                <div class="item-price">
-                                  <div class="price-box"> <span class="regular-price"> <span class="price">$'.$desktop[2].'</span> </span> </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                  				<button type="button" class="btn btn-info">Modify</button>
-                                    <button type="button" class="btn btn-success">Delete</button>
-                  				</div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>';
 
-                echo $DUI;
-        }
-
-        foreach($monitors as $monitor){
-                    $MUI = '<ul class="products-grid">
-                      <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="item">
-                          <div class="col-item">
-                            <div class="sale-label sale-top-right">Sale</div>
-                            <div class="item-inner">
-                              <div class="product-wrapper">
-                                <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onClick=""><span><em>&nbsp;</em></span></span></span></a></div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"> <a href="product_detail.html" title="Sample Product">'. $monitor[0] .'</a> </div>
-                                  <div class="item-content">
-                                    <div class="rating">
-                                      <div class="ratings">
-                                        <div class="rating-box">
-                                          <div class="rating" style="width:60%"></div>
-                                        </div>
-                                        <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                      </div>
-                                    </div>
-                                    <div class="item-price">
-                                      <div class="price-box"> <span class="regular-price"> <span class="price">$'.$monitor[2].'</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div>
-                      				<button type="button" class="btn btn-info">Modify</button>
-                                        <button type="button" class="btn btn-success">Delete</button>
-                      				</div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>';
-
-                    echo $MUI;
-            }
-
-            foreach($tablets as $tablet){
-                        $TUI = '<ul class="products-grid">
-                          <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="item">
-                              <div class="col-item">
-                                <div class="sale-label sale-top-right">Sale</div>
-                                <div class="item-inner">
-                                  <div class="product-wrapper">
-                                    <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onClick=""><span><em>&nbsp;</em></span></span></span></a></div>
-                                  </div>
-                                  <div class="item-info">
-                                    <div class="info-inner">
-                                      <div class="item-title"> <a href="product_detail.html" title="Sample Product">'. $tablet[0] .'</a> </div>
-                                      <div class="item-content">
-                                        <div class="rating">
-                                          <div class="ratings">
-                                            <div class="rating-box">
-                                              <div class="rating" style="width:60%"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                          </div>
-                                        </div>
-                                        <div class="item-price">
-                                          <div class="price-box"> <span class="regular-price"> <span class="price">$'.$tablet[2].'</span> </span> </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div>
-                          				<button type="button" class="btn btn-info">Modify</button>
-                                            <button type="button" class="btn btn-success">Delete</button>
-                          				</div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>';
-
-                        echo $TUI;
-                }
             ?>
           </div>
         </section>
