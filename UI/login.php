@@ -181,10 +181,10 @@ function send_login_data()
             <!-- Header Top Links -->
             <div class="toplinks">
               <div class="links">
-                <div class="myaccount"><a title="My Account" href="login.html"><span>My Account</span></a></div>
-                <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><span>Wishlist</span></a></div>
+                <div class="myaccount"><a title="My Account" href="login.php"><span>My Account</span></a></div>
+                <div class="wishlist"><a title="My Wishlist" href="wishlist.php"><span>Wishlist</span></a></div>
                <!-- <div class="check"><a href="checkout.html" title="Checkout"><span>Checkout</span></a></div> -->
-                <div class="login"><a href="login.html"><span>Log In</span></a></div>
+                <div class="login"><a href="login.php"><span>Log In</span></a></div>
               </div>
             </div>
             <!-- End Header Top Links -->
@@ -233,23 +233,23 @@ function send_login_data()
 
         <!--End mobile-menu -->
         <ul id="nav" class="hidden-xs">
-          <li id="nav-home" class="level0 parent drop-menu active"><a href="index.html"><span>Home</span> </a>
+          <li id="nav-home" class="level0 parent drop-menu active"><a href="index.php"><span>Home</span> </a>
 
           </li>
 
          <!-- <li class="level0 nav-7 level-top parent"> <a href="grid.html" class="level-top"> <span>Computers</span> </a>
 
           </li> -->
-          <li class="level0 nav-6 level-top parent"> <a href="login.html" class="level-top"> <span>Desktop</span> </a>
+          <li class="level0 nav-6 level-top parent"> <a href="login.php" class="level-top"> <span>Desktop</span> </a>
 
           </li>
-          <li class="level0 nav-7 level-top parent"> <a class="level-top" href="login.html"> <span>Laptop</span> </a>
+          <li class="level0 nav-7 level-top parent"> <a class="level-top" href="login.php"> <span>Laptop</span> </a>
 
           </li>
-          <li class="level0 nav-8 level-top"> <a href="login.html" class="level-top"> <span>Monitor</span> </a> </li>
+          <li class="level0 nav-8 level-top"> <a href="login.php" class="level-top"> <span>Monitor</span> </a> </li>
          <!-- <li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Product</span> </a> </li> -->
 
-			<li class="level0 nav-8 level-top"> <a href="login.html" class="level-top"> <span>Tablet</span> </a> </li>
+			<li class="level0 nav-8 level-top"> <a href="login.php" class="level-top"> <span>Tablet</span> </a> </li>
         </ul>
 
 

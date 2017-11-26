@@ -70,7 +70,7 @@
                 <div class="myaccount"><a title="My Account" href="login.html"><span>My Account</span></a></div>
                 <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><span>Wishlist</span></a></div>
                 <!--<div class="check"><a href="checkout.html" title="Checkout"><span>Checkout</span></a></div> -->
-                <div class="login"><a href="login.html"><span>Log In</span></a></div>
+                <div class="login"><a href="login.php"><span>Log In</span></a></div>
               </div>
             </div>
             <!-- End Header Top Links --> 
@@ -126,16 +126,16 @@
          <!-- <li class="level0 nav-7 level-top parent"> <a href="grid.html" class="level-top"> <span>Computers</span> </a>
        
           </li> -->
-          <li class="level0 nav-6 level-top parent"> <a href="login.html" class="level-top"> <span>Desktop</span> </a>
+          <li class="level0 nav-6 level-top parent"> <a href="login.php" class="level-top"> <span>Desktop</span> </a>
         
           </li>
-          <li class="level0 nav-7 level-top parent"> <a class="level-top" href="login.html"> <span>Laptop</span> </a>
+          <li class="level0 nav-7 level-top parent"> <a class="level-top" href="login.php"> <span>Laptop</span> </a>
         
           </li>
-          <li class="level0 nav-8 level-top"> <a href="login.html" class="level-top"> <span>Monitor</span> </a> </li>
+          <li class="level0 nav-8 level-top"> <a href="login.php" class="level-top"> <span>Monitor</span> </a> </li>
          <!-- <li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Product</span> </a> </li> -->
         
-			<li class="level0 nav-8 level-top"> <a href="login.html" class="level-top"> <span>Tablet</span> </a> </li>
+			<li class="level0 nav-8 level-top"> <a href="login.php" class="level-top"> <span>Tablet</span> </a> </li>
         </ul>
        <!-- <div class="top-cart-contain">
           <div class="mini-cart">
