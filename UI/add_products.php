@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-lg-3 col-sm-6 col-md-3">
           <!-- Header Logo -->
-          <a class="logo" title="Magento Commerce" href="index.html"><b><h1><span>OXY</span></b>Computers</h1></a>
+          <a class="logo" title="Magento Commerce" href="index.php"><b><h1><span>OXY</span></b>Computers</h1></a>
           <!-- End Header Logo -->
         </div>
         <div class="col-lg-9 col-sm-6 col-md-9">
@@ -108,23 +108,23 @@
 
         <!--End mobile-menu -->
         <ul id="nav" class="hidden-xs">
-          <li id="nav-home" class="level0 parent drop-menu active"><a href="index.html"><span>Home</span> </a>
+          <li id="nav-home" class="level0 parent drop-menu active"><a href="index.php"><span>Home</span> </a>
 
           </li>
 
          <!-- <li class="level0 nav-7 level-top parent"> <a href="grid.html" class="level-top"> <span>Computers</span> </a>
 
           </li> -->
-          <li class="level0 nav-6 level-top parent"> <a href="grid.html" class="level-top"> <span>Desktop</span> </a>
+          <li class="level0 nav-6 level-top parent"> <a href="product.php" class="level-top"> <span>Desktop</span> </a>
 
           </li>
-          <li class="level0 nav-7 level-top parent"> <a class="level-top" href="grid.html"> <span>Laptop</span> </a>
+          <li class="level0 nav-7 level-top parent"> <a class="level-top" href="product.php"> <span>Laptop</span> </a>
 
           </li>
-          <li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Monitor</span> </a> </li>
+          <li class="level0 nav-8 level-top"> <a href="product.php" class="level-top"> <span>Monitor</span> </a> </li>
          <!-- <li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Product</span> </a> </li> -->
 
-			<li class="level0 nav-8 level-top"> <a href="grid.html" class="level-top"> <span>Tablet</span> </a> </li>
+			<li class="level0 nav-8 level-top"> <a href="product.php" class="level-top"> <span>Tablet</span> </a> </li>
         </ul>
 
 
