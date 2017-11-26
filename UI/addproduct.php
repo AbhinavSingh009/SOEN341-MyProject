@@ -44,12 +44,12 @@
     function select_form()
     {
         var productType = $('#productType').val();
-        if(productType == 'Laptop')
+        if(productType == 'Desktop')
         {
             $('#form2,#form3,#form4').hide();
             $('#form1').show();
         }
-        else if(productType == 'Desktop')
+        else if(productType == 'Laptop')
         {
             $('#form1,#form3,#form4').hide();
             $('#form2').show();
@@ -194,19 +194,22 @@
   <div align="center">
 	<h1> Select Product Type</h1>
   <select id="productType" name="productType" onchange="return select_form()">
-	 <option value="none">--------</option> 
+	 <option value="none">--------</option>
      <option value="Laptop">Laptop</option>
      <option value="Desktop">Desktop</option>
      <option value="Monitor">Monitor</option>
      <option value="Tablet">Tablet</option>
   </select>
-	  
+
 	  </div>
 <div id="abc">
 <!-- Popup Div Starts Here -->
 <div id="desktopID">
 <!-- Contact Us Form -->
-<form action="#" id="form1" method="post" name="form">
+
+
+
+<form action="addcontroller.php" id="form1" method="post" name="form">
 <h2>Desktop Details</h2>
 <hr>
 <input id="brandName" name="Brand Name" placeholder="brand name" type="text">
@@ -223,7 +226,7 @@
 </div>
 <div id="LaptopID">
 
-<form action="#" id="form2" method="post" name="form">
+<form action="addcontroller.php" id="form2" method="post" name="form">
 <h2>Laptop Details</h2>
 <hr>
 <input id="LaptopbrandName" name="Brand Name" placeholder="brand name" type="text">
@@ -243,22 +246,22 @@
 <div id="MonitorID">
 
 
-<form action="#" id="form3" method="post" name="form">
+<form action="../controller/addcontroller.php" id="form3" method="post" name="form">
 <h2>Monitor Details</h2>
 <hr>
-<input id="MonitorDisplaySize" name="Display Size" placeholder="display size" type="text">
-<input id="MonitorBrandName" name="Brand Name" placeholder="brand name" type="text">
-<input id="MonitorPrice" name="Price" placeholder="price" type="number">
-<input id="MonitorModelNumber" name="Model Number" placeholder="model number" type="text">
-<input id="MonitorWeight" name="Monitor Weight" placeholder="monitor weight" type="number">
+<input id="MonitorDisplaySize" name="MDS" placeholder="display size" type="text">
+<input id="MonitorBrandName" name="MBN" placeholder="brand name" type="text">
+<input id="MonitorPrice" name="MP" placeholder="price" type="number">
+<input id="MonitorModelNumber" name="MMN" placeholder="model number" type="text">
+<input id="MonitorWeight" name="MW" placeholder="monitor weight" type="number">
 
-<a href=""id="submit"><button class="btn-success btn-update">Submit</button></a>
+<input type = "submit" class="btn-success btn-update">Submit</input>
 </form>
 </div>
 <div id="TabletID">
 
 
-<form action="#" id="form4" method="post" name="form">
+<form action="addcontroller.php" id="form4" method="post" name="form">
 <h2>Tablet Details</h2>
 <hr>
 <input id="TabletbrandName" name="Brand Name" placeholder="brand name" type="text">

@@ -45,10 +45,8 @@ class MonitorMapper extends Mapper{
 
     }
 
-	public function MakeNew($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
-			$hdSize, $noCPU, $displaySize, $battInfo, $os){
-		$this->obj = new laptop($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
-			$hdSize, $noCPU, $displaySize, $battInfo, $os);
+	public function MakeNew($brandname, $modelNumber, $price, $weight, $size){
+		$this->obj = new monitor($brandname, $modelNumber, $price, $weight, $size);
 		$this->monitorIDMAP->add($this->obj);
 		UnitOfWork::registerNew($this->obj);
 		UnitOfWork::commit();

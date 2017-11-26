@@ -11,6 +11,9 @@ class UnitOfWork{
 
 	}
 
+public static function view(){
+	return self::$registerNew;
+}
 
 	public static function registerNew($obj){
 		//Omapper is the mapper of the object

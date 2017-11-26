@@ -31,7 +31,7 @@ class MTdg extends Tdg{
     }
 
 
-    public function save($laptop){
+    public function save($monitor){
         //some database update db statement
         /*$qry = "UPDATE SET WHERE";
         $result = mysql_query($qry);
@@ -41,27 +41,21 @@ class MTdg extends Tdg{
         else{
             return "Operation Unsuccessful";
         }*/
-        //print_r($laptop);
+        //print_r($monitor);
 
         $newArr = array();
-        $newArr = (array) $laptop;
+        $newArr = (array) $monitor;
         $values = array();
 
 
         echo "array is ";
         $product = array_values($newArr);
 
-        $brandname = $product[7];
-        $modelNumber = $product[8];
-        $price = $product[9];
-        $weight = $product[10];
-        $processorType = $product[3];
-        $ramSize = $product[4];
-        $hdSize = $product[5];
-        $noCPU = $product[6];
-        $displaySize = $product[0];
-        $battInfo = $product[1];
-        $os=$product[2];
+        $size = $product[0];
+        $brandname = $product[1];
+        $modelnumber = $product[2];
+        $price = $product[3];
+        $weight= $product[4];
 
         $servername = "localhost";
         $dbname = "pomoroad_myTestDB";
@@ -69,7 +63,7 @@ class MTdg extends Tdg{
         // Create connection
         $conn = new mysqli($servername, 'root', '', $dbname);
 
-        $sql = "INSERT INTO Laptop (brandname, modelNumber, price, weight, processorType, ramSize, hdSize, noCPU, os, battInfo, displaySize) VALUES ('$brandname', '$modelNumber', '$price', '$weight', '$processorType', '$ramSize', '$hdSize', '$noCPU', '$os', '$battInfo', '$displaySize')";
+        $sql = "INSERT INTO MonitorDisplay (m_DisplaySize, m_Weight, m_brandName, m_ModelNumber, m_Price) VALUES ('$size', '$weight', '$brandname', '$modelnumber', '$price')";
         if($conn->query($sql)===TRUE){
             return "Operation sucessful";
 
@@ -84,10 +78,10 @@ class MTdg extends Tdg{
 
 
     public function delete($id){
-        //$newArr = (array) $laptop;
+        //$newArr = (array) $monitor;
         //$modelNumber = $product[8];
         /*
-        $qry = "DELETE FROM Laptop WHERE";
+        $qry = "DELETE FROM monitor WHERE";
         $result = mysql_query($qry);
         if ($result){
             return "Operation Successful";
@@ -102,7 +96,7 @@ class MTdg extends Tdg{
         // Create connection
         $conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
 
-        $sql = "DELETE FROM Laptop WHERE modelNumber ='$id'";
+        $sql = "DELETE FROM monitor WHERE modelNumber ='$id'";
         if($conn->query($sql)===TRUE){
             return "Operation sucessful";
 
