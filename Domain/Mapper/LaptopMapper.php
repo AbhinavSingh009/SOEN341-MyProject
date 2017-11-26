@@ -62,7 +62,6 @@ class LaptopMapper extends Mapper{
 	}*/
 
 	public function modify($id){
-
 		//$this->obj.property = value; you can call all set methodds in the object
 		$this->obj.set(); //changes values of obj attributes
 		return $this->UOW.registerDirty($this->obj);
@@ -74,16 +73,16 @@ class LaptopMapper extends Mapper{
 		//UnitOfWork::commit();
 	}
 
-	/*public function save($obj){
+	public function save($obj){
 		$this->lTdg->save($obj);
 
 
-	}*/
+	}
 
 	/*public function delete($id){
 		$this->lTdg->delete($id);
 
-	}*
+	}*/
 }
 
 ?>
