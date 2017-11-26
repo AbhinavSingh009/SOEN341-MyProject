@@ -1,22 +1,35 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/Tdg.php";
-class LTdg extends Tdg{
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Data/TDG/Tdg.php";
+class MTdg extends Tdg{
 
-    public function get($id){
-        //sql statments to get laptop with ID
-        //return $resultSet; if found
-        //or null if not found;
-        /*$qry = "SELECT  FROM  WHERE";
-        $result = mysql_query($qry);
-        if ($result){
-            //return resultset ;
-        }
-        else{
-            return "Operation Unsuccessful";
-        }*/
+  public function get(){
+        $productList = array();
+        $servername = "localhost";
+        $dbname = "pomoroad_myTestDB";
 
+
+        // Create connection
+        $conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
+
+        $monitorQuery = $conn->query("SELECT * FROM MonitorDisplay");
+
+
+            if($monitorQuery->num_rows>0){
+                while($row=$monitorQuery->fetch_assoc()){
+                    $brandName=$row['m_brandName'];
+                    $modelNumber=$row['m_ModelNumber'];
+                    $weight=$row['m_Weight'];
+                    $price=$row['m_Price'];
+                    $displaySize=$row['m_DisplaySize'];
+                    $product = array($brandName, $modelNumber, $price, $weight, $displaySize);
+                array_push($productList, $product);
+                }
+                return $productList;
+
+            }
 
     }
+
 
     public function save($laptop){
         //some database update db statement

@@ -11,11 +11,11 @@ public function get(){
 	    // Create connection
 	    $conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
 
-	    $monitorQuery = $conn->query("SELECT * FROM Laptop");
+	    $laptopQuery = $conn->query("SELECT * FROM Laptop");
 
 
-	        if($monitorQuery->num_rows>0){
-	            while($row=$monitorQuery->fetch_assoc()){
+	        if($laptopQuery->num_rows>0){
+	            while($row=$laptopQuery->fetch_assoc()){
 	                $brandName=$row['brandname'];
 	                $modelNumber=$row['modelNumber'];
 	                $weight=$row['weight'];

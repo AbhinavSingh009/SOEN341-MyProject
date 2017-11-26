@@ -1,16 +1,22 @@
 <?php
-include_once "Mapper.php";
+/*include_once "Mapper.php";
 include_once "Uow.php";
 include_once "tabletIdMap.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/TTdg.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Tablet.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Tablet.php";*/
 
-class LaptopMapper extends Mapper{
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/Mapper/Mapper.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/UOW.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/IdentityMap/tabletIdMap.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Data/TDG/TTdg.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Tablet.php";
+
+class TabletMapper extends Mapper{
 	private $obj;
 	private $tablet;
 	private $tabletIDMAP;
 	private $tTdg;
-	
+
 	/*
 	public function __construct(){
 		$this->tabletIDMAP = new TabletIdMap();
@@ -24,8 +30,8 @@ class LaptopMapper extends Mapper{
         if ($this->tabletIDMAP == null){
             $this->tabletIDMAP = new TabletIdMap();
         }
-        if ($this->TTdg == null){
-            $this->TTdg = new tTdg();
+        if ($this->tTdg == null){
+            $this->tTdg = new tTdg();
         }
     }
 
@@ -34,7 +40,7 @@ class LaptopMapper extends Mapper{
 
     public function get(){
         if ($this->tabletIDMAP->get() == null){
-            $productList = $this->TTdg->get();
+            $productList = $this->tTdg->get();
             return $productList;
         }else{
             return $this->tabletIDMAP->get();
@@ -50,22 +56,22 @@ class LaptopMapper extends Mapper{
 		UnitOfWork::commit();
 	}
 
-	
+
 	public function erase($id){
 		$this->tabletIDMAP->delete($id);
 		UnitOfWork::registerDelete($this, $id);
 		UnitOfWork::commit();
 	}
-	
+
 	public function save($obj){
 		$this->tTdg->save($obj);
-		
-	
+
+
 	}
-		
+
 	public function delete($id){
 		$this->tTdg->delete($id);
-	
+
 	}
 }
 

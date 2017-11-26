@@ -1,9 +1,15 @@
 <?php
-include_once "Mapper.php";
+/*include_once "Mapper.php";
 include_once "Uow.php";
 include_once "monitorIdMap.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/MTdg.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Monitor.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Monitor.php";*/
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/Mapper/Mapper.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/UOW.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/IdentityMap/monitorIdMap.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Data/TDG/MTdg.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Monitor.php";
 
 class MonitorMapper extends Mapper{
 	private $obj;
