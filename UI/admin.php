@@ -204,15 +204,14 @@ $products[] = $tmapper -> get();
 $products[] = $mmapper -> get();
 
 
-//print_r($products[3]);
+print_r($products[3]);
+
 
 
 $laptops = $products[0];
 $desktops = $products[1];
 $tablets = $products[2];
 $monitors = $products[3];
-
-
 
 foreach($laptops as $laptop){
             $LUI = '<ul class="products-grid">
@@ -243,7 +242,7 @@ foreach($laptops as $laptop){
                         </div>
                         <div>
               				<button type="button" class="btn btn-info">Modify</button>
-                                <button type="button" class="btn btn-success">Delete</button>
+                                <a href = ""><button type="button" class="btn btn-success">Delete</button></a>
               				</div>
                     </div>
                   </div>
@@ -324,8 +323,8 @@ foreach($laptops as $laptop){
                                   </div>
                                 </div>
                                 <div>
-                      				<button type="button" class="btn btn-info">Modify</button>
-                                        <button type="button" class="btn btn-success">Delete</button>
+                      				<a href = "../controller/modify.php?id='.$monitor[1].'" ><button type="button" class="btn btn-info">Modify</button></a>
+                              <a href = "../controller/deletecontroller.php?id='.$monitor[1].'" ><button type="button" class="btn btn-success">Delete</button></a>
                       				</div>
                             </div>
                           </div>
