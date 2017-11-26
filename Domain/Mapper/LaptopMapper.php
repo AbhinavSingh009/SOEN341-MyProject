@@ -14,7 +14,9 @@ class LaptopMapper extends Mapper{
 
 
 	public function __construct(){
-		$this->laptopIDMAP = new LaptopIdMap();
+		if ($this->laptopIDMAP == null){
+			$this->laptopIDMAP = new LaptopIdMap();
+		}
 		if ($this->lTdg == null){
 			$this->lTdg = new LTdg();
 		}
@@ -29,17 +31,20 @@ class LaptopMapper extends Mapper{
 		UnitOfWork::commit();
 	}
 
-
 	public function get(){
-							$productList = $ltdg->get();
-							//return $productList;
-							echo "hi in monitor view";
+		if ($this->laptopIDMAP->get() == null){
+							$productList = $this->lTdg->get();
+							return $productList;
+		}else{
+				return $this->laptopIDMAP->get();
+		}
+							//echo "hi in monitor view";
 	}
 
 
 
 
-	public function find($id){
+	/*public function find($id){
 		if ($this->laptopIDMAP.get($id) == null){
 
 			if($this->lTdg.get($id) != null){
@@ -54,7 +59,7 @@ class LaptopMapper extends Mapper{
 			$this->obj = $this->laptopIDMAP.get(id);
 			return $this->obj;
 		}
-	}
+	}*/
 
 	public function modify($id){
 

@@ -14,7 +14,7 @@
 <link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
 
-!-- JavaScript -->
+<!-- JavaScript -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/parallax.js"></script>
@@ -37,21 +37,23 @@
 
 <script>
 $(document).ready(function(){
-  console.log("here");
+  //console.log("here");
       //  write ajax code here
       $.ajax({
           type: 'post',
-          url: '../controller/controller.php',
+          url: '../controller/viewcontroller.php',
           data:{"page_name": "view_products"},
           cache:false,
           success: function(data, status)
           {
-              if(data == 'true')
-              {
+              //if(data == 'true')
+              //{
 
-                console.log("ready to start recieving data");
+                console.log(data);
+                //var laptops = JSON.parse(data);
+                //console.log(laptops[1]);
 
-              }
+              //}
           },
           error: function(xhr, desc, err) {
               console.log(xhr);

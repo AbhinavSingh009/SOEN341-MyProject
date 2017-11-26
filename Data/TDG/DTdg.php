@@ -1,23 +1,39 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/Tdg.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Data/TDG/Tdg.php";
 class DTdg extends Tdg{
-	
-	public function get($id){
-		//sql statments to get laptop with ID
-		//return $resultSet; if found
-		//or null if not found;
-		/*$qry = "SELECT  FROM  WHERE";
-		$result = mysql_query($qry);
-		if ($result){
-			//return resultset ;
+
+	public function get(){
+		    $productList = array();
+		    $servername = "localhost";
+		    $dbname = "pomoroad_myTestDB";
+
+
+		    // Create connection
+		    $conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
+
+		    $monitorQuery = $conn->query("SELECT * FROM Desktop");
+
+
+		        if($monitorQuery->num_rows>0){
+		            while($row=$monitorQuery->fetch_assoc()){
+		                $brandName=$row['brandname'];
+		                $modelNumber=$row['modelNumber'];
+		                $weight=$row['weight'];
+		                $price=$row['price'];
+		                $processorType=$row['processorType'];
+		                $ramSize=$row['ramSize'];
+		                $hdSize=$row['hdSize'];
+		                $noCPU=$row['noCPU'];
+										$dimensions = $row['dimensions'];
+		                $product = array($brandName, $modelNumber, $price, $weight, $processorType, $ramSize, $hdSize, $noCPU, $dimensions);
+		            array_push($productList, $product);
+		            }
+		            return $productList;
+
+		        }
+
 		}
-		else{
-			return "Operation Unsuccessful";
-		}*/
-		
-		
-	}
-	
+
 	public function save($desktop){
 		//some database update db statement
 		/*$qry = "UPDATE SET WHERE";
@@ -29,15 +45,15 @@ class DTdg extends Tdg{
 			return "Operation Unsuccessful";
 		}*/
 		//print_r($laptop);
-		
+
 		$newArr = array();
 		$newArr = (array) $desktop;
 		$values = array();
-		
-		
+
+
 		echo "array is ";
 		$product = array_values($newArr);
-		
+
 		$brandname = $product[7];
 		$modelNumber = $product[8];
 		$price = $product[9];
@@ -49,26 +65,26 @@ class DTdg extends Tdg{
 		$height = $product[0];
 		$length = $product[1];
 		$width=$product[2];
-		
+
 			$servername = "localhost";
 			$dbname = "pomoroad_myTestDB";
-	
+
 			// Create connection
 			$conn = new mysqli($servername, 'root', '', $dbname);
-			
-			$sql = "INSERT INTO Laptop (brandname, modelNumber, price, weight, processorType, ramSize, hdSize, noCPU, width, length, height) VALUES ('$brandname', '$modelNumber', '$price', '$weight', '$processorType', '$ramSize', '$hdSize', '$noCPU', '$width', '$lenght', '$height')";
+
+			$sql = "INSERT INTO Laptop (brandname, modelNumber, price, weight, processorType, ramSize, hdSize, noCPU, width, length, height) VALUES ('$brandname', '$modelNumber', '$price', '$weight', '$processorType', '$ramSize', '$hdSize', '$noCPU', '$width', '$length', '$height')";
 		   if($conn->query($sql)===TRUE){
 			   return "Operation sucessful";
-			   
-			   
+
+
 		   }else{
 			   echo "Error: " .$sql."<br>".$conn->error;
 		   }
-		
+
 			$conn->close();
-			
+
 	}
-	
+
 
 	public function delete($id){
 		//$newArr = (array) $laptop;
@@ -82,31 +98,31 @@ class DTdg extends Tdg{
 		else{
 			return "Operation Unsuccessful";
 		}*/
-		
+
 			$servername = "localhost";
 			$dbname = "pomoroad_myTestDB";
-	
+
 			// Create connection
 			$conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
-			
+
 			$sql = "DELETE FROM Desktop WHERE modelNumber ='$id'";
 		   if($conn->query($sql)===TRUE){
 			   return "Operation sucessful";
-			   
-			   
+
+
 		   }else{
 			   echo "Error: " .$sql."<br>".$conn->error;
 		   }
-		
+
 			$conn->close();
-		
+
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 }
 
 

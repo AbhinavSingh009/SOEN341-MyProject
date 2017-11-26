@@ -1,9 +1,16 @@
 <?php
-include_once "Mapper.php";
+/*include_once "Mapper.php";
 include_once "Uow.php";
 include_once "desktopIdMap.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/dataSource/DTdg.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Desktop.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/soen341/domain/domainObjects/products/Desktop.php";*/
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/Mapper/Mapper.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/UOW.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/IdentityMap/desktopIdMap.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Data/TDG/DTdg.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/domainObjects/products/Desktop.php";
+
 
 class DesktopMapper extends Mapper{
 	private $obj;
@@ -26,6 +33,11 @@ class DesktopMapper extends Mapper{
 		$this->desktopIDMAP->add($this->obj);
 		UnitOfWork::registerNew($this->obj);
 		UnitOfWork::commit();
+	}
+
+	public function get(){
+							$productList = $this->dTdg->get();
+							return $productList;
 	}
 
 	public function erase($id){

@@ -18,35 +18,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/Domain/Mapper/Clien
       $mapper = new ClientMapper();
       if ($mapper->find($_REQUEST['user_name'], $_REQUEST['pass_word']) == "admin"){
         echo "admin";
-  }else if ($mapper->find($_REQUEST['user_name'], $_REQUEST['pass_word']) == "client"){
+      }else if ($mapper->find($_REQUEST['user_name'], $_REQUEST['pass_word']) == "client"){
         echo "client";
-  }else{
+      }else{
 	      echo "no user";
-}
-
-//start admin view control
-if(isset($_REQUEST['page_name']) && $_REQUEST['page_name'] == 'view_products')
-{
-    //$lmapper = new LaptopMapper();
-    //$dmapper = new DesktopMapper();
-    //$mmapper = new MonitorMapper();
-  //  $tmapper = new TabletMapper();
-
-  //  $lmapper->get();
-      echo "true";
-
-
-}
-
-
-
-      //echo $clientmapper->find($_REQUEST['user_name'], $_REQUEST['pass_word']);
-
-
-
-
-      //echo "login";
-  }//finish login control
-
-
+      }
+  }
 ?>

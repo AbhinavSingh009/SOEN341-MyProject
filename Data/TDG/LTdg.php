@@ -27,7 +27,7 @@ public function get(){
 	                $displaySize=$row['displaySize'];
 	                $battInfo=$row['battInfo'];
 	                $os=$row['os'];
-	                $product = array($brandName, $modelNumber, $price, $weight, $size, $processorType, $ramSize, $hdSize, $noCPU, $displaySize, $battInfo, $os);
+	                $product = array($brandName, $modelNumber, $price, $weight, $processorType, $ramSize, $hdSize, $noCPU, $os, $battInfo, $displaySize);
 	            array_push($productList, $product);
 	            }
 	            return $productList;
