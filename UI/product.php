@@ -190,30 +190,19 @@
                   </ul>
                 </div>
               </div> -->
-
             </div>
-
-
-
-
-                <?php
-                include_once $_SERVER['DOCUMENT_ROOT'] . "/SOEN341-MyProject/controller/UIcontroller.php";
-                //print_r($lmapper->get());
-                $laptops = $lmapper->get();
-
-                foreach($laptops as $info){
-                $UI =  '<ul class="products-grid">
-                  <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <ul class="products-grid">
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="item">
                   <div class="col-item">
                     <div class="sale-label sale-top-right">Sale</div>
                     <div class="item-inner">
                       <div class="product-wrapper">
-                        <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" ><span><em>&nbsp;</em></span></span></span></a></div>
+                        <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onClick="javascript:location.href='quick_view.html'" data-product_id="34"><span><em>&nbsp;</em></span></span></span></a></div>
                       </div>
                       <div class="item-info">
                         <div class="info-inner">
-                          <div class="item-title"> <a href="product_detail.html" title="Sample Product">'. $info[0] .'</a> </div>
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
                           <div class="item-content">
                             <div class="rating">
                               <div class="ratings">
@@ -236,17 +225,366 @@
                   </div>
                 </div>
               </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="new-label new-top-right">New</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onClick="javascript:location.href='quick_view.html'" data-product_id="34"><span><em>&nbsp;</em></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="sale-label sale-top-right">Sale</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                         <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="new-label new-top-right">New</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                         <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="sale-label sale-top-right">Sale</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="#" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="actions"> <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> </span> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="sale-label sale-top-right">Sale</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="quick_view.html" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                         <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="sale-label sale-top-right">Sale</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="quick_view.html" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="new-label new-top-right">New</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="quick_view.html" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product26.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="actions"> <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> </span> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="sale-label sale-top-right">Sale</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="quick_view.html" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="actions"> <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> </span> </div>
+                      </div>
+                    </div>s
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="new-label new-top-right">New</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="quick_view.html" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                         <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="sale-label sale-top-right">Sale</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="quick_view.html" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                         <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="item">
+                  <div class="col-item">
+                    <div class="sale-label sale-top-right">Sale</div>
+                    <div class="item-inner">
+                      <div class="product-wrapper">
+                        <div class="thumb-wrapper"><a href="quick_view.html" class="thumb flip"><span class="face"><img src="products-images/product1.jpg" alt="Sample Product"></span><span class="face back"><img src="products-images/product1.jpg" title="Sample Product" alt="Product image"><span class="quick-view" onclick="javascript:location.href='quick_view.html'" data-product_id="34"><span><i>&nbsp;</i></span></span></span></a></div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a href="product_detail.html" title="Sample Product"> Sample Product </a> </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <div class="ratings">
+                                <div class="rating-box">
+                                  <div class="rating" style="width:60%"></div>
+                                </div>
+                                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                              </div>
+                            </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">$131.00</span> </span> </div>
+                            </div>
+                          </div>
+                        </div>
+                       <div class="actions">
+
+                          <span class="add-to-links"> <a href="wishlist.html" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> <a href="compare.html" </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
-        </section>';
-
-echo ($UI);
-      }
-
-
-
-
-
-        ?>
+        </section>
         <aside class="col-right sidebar col-sm-3 col-xs-12 col-sm-pull-9">
           <div class="block block-layered-nav">
             <div class="block-title">Shop By</div>
