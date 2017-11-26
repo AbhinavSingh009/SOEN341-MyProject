@@ -11,21 +11,15 @@ class WTdg extends Tdg{
 		    // Create connection
 		    $conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
 
-		    $wishlistQuery = $conn->query("SELECT * FROM Wishlist WHERE user");
+		    $wishlistQuery = $conn->query("SELECT * FROM Wishlist WHERE Username == $username");
 
 
 		        if($wishlistQuery->num_rows>0){
 		            while($row=$wishlistQuery->fetch_assoc()){
-		                $brandName=$row['brandname'];
-		                $modelNumber=$row['modelNumber'];
-		                $weight=$row['weight'];
-		                $price=$row['price'];
-		                $processorType=$row['processorType'];
-		                $ramSize=$row['ramSize'];
-		                $hdSize=$row['hdSize'];
-		                $noCPU=$row['noCPU'];
-										$dimensions = $row['dimensions'];
-		                $product = array($brandName, $modelNumber, $price, $weight, $processorType, $ramSize, $hdSize, $noCPU, $dimensions);
+		                $username=$row['Username'];
+		                $modelNumber=$row['ModelNumber'];
+
+		                $product = array($username, $modelNumber);
 		            array_push($productList, $product);
 		            }
 		            return $productList;
@@ -34,7 +28,9 @@ class WTdg extends Tdg{
 
 		}
 
-	public function save($desktop){
+
+
+	public function save($wish){
 		//some database update db statement
 		/*$qry = "UPDATE SET WHERE";
 		$result = mysql_query($qry);
@@ -47,24 +43,15 @@ class WTdg extends Tdg{
 		//print_r($laptop);
 
 		$newArr = array();
-		$newArr = (array) $desktop;
+		$newArr = (array) $wish;
 		$values = array();
 
 
-		echo "array is ";
 		$product = array_values($newArr);
 
-		$brandname = $product[7];
-		$modelNumber = $product[8];
-		$price = $product[9];
-		$weight = $product[10];
-		$processorType = $product[3];
-		$ramSize = $product[4];
-		$hdSize = $product[5];
-		$noCPU = $product[6];
-		$height = $product[0];
-		$length = $product[1];
-		$width=$product[2];
+		$brandname = $product[0];
+		$modelNumber = $product[1];
+
 
 			$servername = "localhost";
 			$dbname = "pomoroad_myTestDB";
@@ -72,7 +59,7 @@ class WTdg extends Tdg{
 			// Create connection
 			$conn = new mysqli($servername, 'root', '', $dbname);
 
-			$sql = "INSERT INTO Laptop (brandname, modelNumber, price, weight, processorType, ramSize, hdSize, noCPU, width, length, height) VALUES ('$brandname', '$modelNumber', '$price', '$weight', '$processorType', '$ramSize', '$hdSize', '$noCPU', '$width', '$length', '$height')";
+			$sql = "INSERT INTO wishlist (ModelNumber, Username) VALUES ('$modelNumber', '$username')";
 		   if($conn->query($sql)===TRUE){
 			   return "Operation sucessful";
 
@@ -105,7 +92,7 @@ class WTdg extends Tdg{
 			// Create connection
 			$conn = new mysqli($servername, 'root', '', $dbname);//MB_6_cSsGJog
 
-			$sql = "DELETE FROM Desktop WHERE modelNumber ='$id'";
+			$sql = "DELETE FROM Wishlist WHERE Username ='$id'";
 		   if($conn->query($sql)===TRUE){
 			   return "Operation sucessful";
 

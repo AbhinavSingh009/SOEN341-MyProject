@@ -10,15 +10,13 @@ $this->product = $product;
 
 }
 
-public function addtoWishlist($username, $product){
-    
+public function getUsername(){
+  return $this -> username;
 
 }
 
-public function getWishlist($username){
-
-}
-
+public function getProduct()
+  return $this -> product;
 
 }
  ?>
