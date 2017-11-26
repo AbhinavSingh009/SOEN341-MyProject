@@ -12,12 +12,32 @@ class MonitorMapper extends Mapper{
 	private $mTdg;
 
 
+    public function __construct(){
+        if ($this->monitorIDMAP == null){
+            $this->monitorIDMAP = new MonitorIdMap();
+        }
+        if ($this->mTdg == null){
+            $this->mTdg = new MTdg();
+        }
+    }
+/*
 	public function __construct(){
 		$this->monitorIDMAP = new MonitorIdMap();
 		if ($this->mTdg == null){
 			$this->mTdg = new MTdg();
 		}
 	}
+*/
+
+    public function get(){
+        if ($this->monitorIDMAP->get() == null){
+            $productList = $this->mTdg->get();
+            return $productList;
+        }else{
+            return $this->monitorIDMAP->get();
+        }
+
+    }
 
 	public function MakeNew($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
 			$hdSize, $noCPU, $displaySize, $battInfo, $os){

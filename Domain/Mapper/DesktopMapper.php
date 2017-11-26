@@ -18,13 +18,21 @@ class DesktopMapper extends Mapper{
 	private $desktopIDMAP;
 	private $dTdg;
 
+    public function __construct(){
+        if ($this->desktopIDMAP == null){
+            $this->desktopIDMAP = new DesktopIdMap();
+        }
+        if ($this->dTdg == null){
+            $this->dTdg = new dTdg();
+        }
+    }
 
-	public function __construct(){
+/*	public function __construct(){
 		$this->desktopIDMAP = new DesktopIdMap();
 		if ($this->dTdg == null){
 			$this->dTdg = new DTdg();
 		}
-	}
+	} */
 
 	public function MakeNew($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
 			$hdSize, $noCPU, $height, $length, $width){
@@ -35,12 +43,23 @@ class DesktopMapper extends Mapper{
 		UnitOfWork::commit();
 	}
 
-	public function get(){
-							$productList = $this->dTdg->get();
-							return $productList;
-	}
+	//public function get(){
+						//	$productList = $this->dTdg->get();
+							//return $productList;
+	//}
 
-	public function erase($id){
+    public function get(){
+        if ($this->desktopIDMAP->get() == null){
+            $productList = $this->dTdg->get();
+            return $productList;
+        }else{
+            return $this->desktopIDMAP->get();
+        }
+
+    }
+
+
+    public function erase($id){
 		$this->desktopIDMAP->delete($id);
 		UnitOfWork::registerDelete($this, $id);
 		UnitOfWork::commit();

@@ -11,14 +11,36 @@ class LaptopMapper extends Mapper{
 	private $tabletIDMAP;
 	private $tTdg;
 	
-	
+	/*
 	public function __construct(){
 		$this->tabletIDMAP = new TabletIdMap();
 		if ($this->tTdg == null){
 			$this->tTdg = new TTdg();
 		}
 	}
-	
+*/
+
+    public function __construct(){
+        if ($this->tabletIDMAP == null){
+            $this->tabletIDMAP = new TabletIdMap();
+        }
+        if ($this->TTdg == null){
+            $this->TTdg = new tTdg();
+        }
+    }
+
+
+
+
+    public function get(){
+        if ($this->tabletIDMAP->get() == null){
+            $productList = $this->TTdg->get();
+            return $productList;
+        }else{
+            return $this->tabletIDMAP->get();
+        }
+
+    }
 	public function MakeNew($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
 			$hdSize, $noCPU, $displaySize, $battInfo, $os,$cameraInfo, $height, $length, $width){
 		$this->obj = new tablet($brandname, $modelNumber, $price, $weight, $processorType, $ramSize,
