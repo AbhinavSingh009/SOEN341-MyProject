@@ -173,7 +173,7 @@
                 </div>
               </div>
               <br />
-              <form name="registration_frm" id="registration_frm" method="POST">
+              <form name="registration_frm" id="registration_frm" method="POST" action="../controller/UIlogincontroller.php">
                 <div id="register_div">
                   <ul class="form-list">
                     <li>
